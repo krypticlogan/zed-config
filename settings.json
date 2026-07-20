@@ -1,4 +1,3 @@
-// Zed settings
 //
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
@@ -7,11 +6,40 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "format_on_save": "on",
   "cursor_shape": "block",
   "relative_line_numbers": "disabled",
   "soft_wrap": "prefer_line",
+  "sticky_scroll": {
+    "enabled": true, // Whether to stick scopes to the top of the editor. Disabled by default.
+  },
+  "tab_bar": {
+    "show": true, // Show/hide the tab bar
+    "show_nav_history_buttons": true, // Show/hide history buttons on tab bar
+    "show_tab_bar_buttons": false, // Show hide buttons (new, split, zoom)
+  },
+  "tabs": {
+    "git_status": false, // Color to show git status
+    "close_position": "right", // Close button position (left, right, hidden)
+    "show_close_button": "hover", // Close button shown (hover, always, hidden)
+    "file_icons": true, // Icon showing file type
+    // Show diagnostics in file icon (off, errors, all). Requires file_icons=true
+    "show_diagnostics": "errors",
+  },
   "terminal": {
+    "copy_on_select": false,
     "dock": "right",
+    "shell": {
+      "with_arguments": {
+        "program": "/bin/zsh", // this may change per machine
+        "args": ["--login"],
+      },
+    },
   },
   "autosave": {
     "after_delay": {
@@ -35,6 +63,11 @@
   },
   "agent_servers": {
     "codex-acp": {
+      "default_config_options": {
+        "fast-mode": false,
+        "mode": "read-only",
+        "reasoning_effort": "high",
+      },
       "type": "registry",
     },
   },
@@ -42,16 +75,35 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "dark",
-    "light": "Tokyo Night Light",
+    "light": "Rosé Pine Dawn",
     "dark": "Rosé Pine",
   },
   "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true,
+          },
+          "closureReturnTypeHints": {
+            "enable": "always",
+          },
+        },
+      },
+    },
     "zls": {
       "initialization_options": {
         "enable_inlay_hints": true,
         "inlay_hints_show_parameter_name": true,
         "inlay_hints_show_variable_type_hints": true,
         "inlay_hints_show_struct_literal_field_type": true,
+      },
+      "settings": {
+        "zls": {
+          "enable_build_on_save": true,
+        },
       },
     },
   },
@@ -60,22 +112,80 @@
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true,
+    "show_background": false,
   },
+  "scrollbar": {
+    "diagnostics": "all",
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": null,
+    },
+  },
+
   "theme_overrides": {
+    "Rosé Pine Dawn": {
+      "background.appearance": "blurred",
+      "background": "#ffffff50",
+      "editor.background": "#ffffff30",
+      "editor.gutter.background": "#ffffff30",
+      "editor.active_line.background": "#57527920",
+      "editor.document_highlight.read_background": "#56949f35",
+      "editor.document_highlight.write_background": "#907aa945",
+      "panel.background": "#ffffff30",
+      "tab_bar.background": "#ffffff80",
+      "title_bar.background": "#ffffff30",
+      "status_bar.background": "#ffffff30",
+      "toolbar.background": "#ffffff30",
+      "tab.active_background": "#ffffff40",
+      "tab.inactive_background": "#ffffff00",
+      "terminal.background": "#ffffff20",
+      "scrollbar.thumb.background": "#79759355",
+      "scrollbar.thumb.hover_background": "#57527970",
+      "scrollbar.thumb.border": "#57527925",
+      "syntax": {
+        "comment": {
+          "color": "#B692D5",
+          // color
+        },
+        "punctuation": {
+          "color": "#575279",
+        },
+        "punctuation.bracket": {
+          "color": "#575279",
+        },
+        "punctuation.delimiter": {
+          "color": "#575279",
+        },
+      },
+    },
     "Rosé Pine": {
       "background.appearance": "blurred",
-      "background": "#00000030",
-      "editor.background": "#00000010",
+      "background": "#00000050",
+      "editor.background": "#00000030",
       "editor.gutter.background": "#00000030",
-      "editor.active_line.background": "#66666680",
+      "editor.active_line.background": "#aaaaaa80",
+      "editor.document_highlight.read_background": "#9ccfd835",
+      "editor.document_highlight.write_background": "#c4a7e745",
       "panel.background": "#00000030",
-      "tab_bar.background": "#00000030",
+      "tab_bar.background": "#00000080",
       "title_bar.background": "#00000030",
       "status_bar.background": "#00000030",
       "toolbar.background": "#00000030",
       "tab.active_background": "#28282820",
       "tab.inactive_background": "#00000000",
-      "terminal.background": "#00000030",
+      "terminal.background": "#00000020",
+      "scrollbar.thumb.background": "#908caa55",
+      "scrollbar.thumb.hover_background": "#e0def470",
+      "scrollbar.thumb.border": "#e0def425",
+      // "hint.background": "#00000000",
+      "syntax": {
+        "comment": {
+          "color": "#a6da95",
+          // color
+        },
+      },
     },
   },
 }
